@@ -1,7 +1,7 @@
 Package: figir
 Type: Package
 Title: Check validity of FIGI
-Version: 0.1.1
+Version: 0.1.2
 Author: Panagiotis Cheilaris [aut, cre]
 Maintainer: Panagiotis Cheilaris <philaris@cs.ntua.gr>
 Description: Check validity of FIGI
