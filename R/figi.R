@@ -1,8 +1,10 @@
 figi_utf8_to_code <- function(int.v) {
+  code0 <- base::utf8ToInt('0')
   codeA <- base::utf8ToInt('A')
-  base::ifelse(int.v < codeA,
-               int.v - base::utf8ToInt('0'),
-               int.v - codeA + 10L)
+  pmax(base::ifelse(int.v < codeA,
+                    int.v - code0,
+                    int.v - codeA + 10L),
+       0L)
 }
 
 figi_sum_digits <- function(int.v) {
