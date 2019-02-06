@@ -13,15 +13,19 @@ figi_char_to_utf8 <- function(s) {
   base::lapply(s, FUN = base::utf8ToInt)
 }
 
-figi_compute_checksum <- function(s) {
+gen_compute_checksum <- function(s, mul.v) {
   u8.l <- figi_char_to_utf8(s)
   figi_code.l <- base::lapply(u8.l, FUN = figi_utf8_to_code)
   mul12.l <- base::lapply(figi_code.l,
-                          FUN = function (v) { v * rep(c(1L, 2L), length.out = length(v)) })
+                          FUN = function (v) { v * rep(mul.v, length.out = length(v)) })
   figi_sum2.l <- base::lapply(mul12.l, FUN = figi_sum_digits)
   sum_digits.v <- base::vapply(figi_sum2.l, FUN = sum, FUN.VALUE = NA_integer_)
   check_digit.v <- -sum_digits.v %% 10L
   as.character(check_digit.v)
+}
+
+figi_compute_checksum <- function(s) {
+  gen_compute_checksum(s, c(1L, 2L))
 }
 
 figi_has_correct_checksum <- function(s) {
