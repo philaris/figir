@@ -2,3 +2,4 @@
 
 export(figi_check)
 export(isin_check)
+export(sedol_check)
