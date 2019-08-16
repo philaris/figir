@@ -1,0 +1,41 @@
+cusip_compute_checksum <- function(s) {
+  u8.l <- figi_char_to_utf8(s)
+  figi_code.l <- base::lapply(u8.l, FUN = figi_utf8_to_code)
+  mul12.l <- base::lapply(figi_code.l,
+                          FUN = function (v) { v * rep(c(1L, 2L), length.out = length(v)) })
+  digi_code.l <- base::lapply(mul12.l, FUN = expand_digits)
+  figi_sum2.l <- base::lapply(digi_code.l, FUN = figi_sum_digits)
+  sum_digits.v <- base::vapply(figi_sum2.l, FUN = sum, FUN.VALUE = NA_integer_)
+  check_digit.v <- - sum_digits.v %% 10L
+  as.character(check_digit.v)
+}
+
+cusip_has_correct_checksum <- function(s) {
+  cusip_compute_checksum(substr(s, 1L, 8L)) == substr(s, 9L, 9L)
+}
+
+#' Check validity of CUSIP
+#'
+#' Given a character vector, check the validity of CUSIP
+#' (Committee on Uniform Security Identification Procedures)
+#' for each of its elements.
+#'
+#' @param s a character vector for whose elements validity of CUSIP
+#'   is checked.
+#'
+#' @return A logical vector.
+#'
+#' @examples
+#' cusip_check('052800109')
+#' cusip_check('87162M409')
+#' cusip_check('500750104')
+#' cusip_check(c('052800109', '87162M409'))
+#' cusip_check(c('052800109', '87162M407'))
+#'
+#' @export
+cusip_check <- function(s) {
+  base::nchar(s) == 9L &
+    grepl('^[A-Z0-9]{9}$',
+          s) &
+    cusip_has_correct_checksum(s)
+}
