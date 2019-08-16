@@ -42,6 +42,8 @@ figi_has_correct_checksum <- function(s) {
 #' @param s a character vector for whose elements validity of FIGI
 #'   (Financial Instrument Global Identifier) is checked.
 #'
+#' @return A logical vector.
+#'
 #' @examples
 #' figi_check('BBG000BLNQ16')
 #' figi_check('NRG92C84SB39')

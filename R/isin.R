@@ -31,6 +31,8 @@ isin_has_correct_checksum <- function(s) {
 #' @param s a character vector for whose elements validity of ISIN
 #'   (International Securities Identification Number) is checked.
 #'
+#' @return A logical vector.
+#'
 #' @examples
 #' isin_check('BBG000BLNQ16')
 #' isin_check('NRG92C84SB39')

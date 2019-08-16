@@ -10,6 +10,9 @@ isin_check(s)
 \item{s}{a character vector for whose elements validity of ISIN
 (International Securities Identification Number) is checked.}
 }
+\value{
+A logical vector.
+}
 \description{
 Given a character vector, check the validity of ISIN
 (International Securities Identification Number)

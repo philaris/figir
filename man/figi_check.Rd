@@ -10,6 +10,9 @@ figi_check(s)
 \item{s}{a character vector for whose elements validity of FIGI
 (Financial Instrument Global Identifier) is checked.}
 }
+\value{
+A logical vector.
+}
 \description{
 Given a character vector, check the validity of FIGI (Financial
 Instrument Global Identifier) for each of its elements.
