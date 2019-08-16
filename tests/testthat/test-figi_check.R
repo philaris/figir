@@ -1,8 +1,11 @@
-context("Check FIGI validity")
-library(figir)
+testthat::context("Check FIGI validity")
 
-test_that("figi_check NULL", {
-  expect_equal(figi_check(character(0)), logical(0))
+testthat::test_that("figi_check NULL", {
+  testthat::expect_equal(figi_check(character(0)), logical(0))
+})
+
+testthat::test_that("figi_check NA_character_", {
+  testthat::expect_false(figi_check(NA_character_))
 })
 
 test_that("figi_check correct FIGI", {

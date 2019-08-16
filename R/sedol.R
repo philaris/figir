@@ -31,6 +31,7 @@ sedol_has_correct_checksum <- function(s) {
 #'
 #' @export
 sedol_check <- function(s) {
+  !is.na(s) &
   base::nchar(s) == 7L &
     grepl('^[0-9BCDFGHJKLMNPQRSTVWXYZ]{7}$',
           s) &

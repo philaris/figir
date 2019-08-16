@@ -4,6 +4,10 @@ testthat::test_that("cusip_check NULL", {
   testthat::expect_equal(cusip_check(character(0)), logical(0))
 })
 
+testthat::test_that("cusip_check NA_character_", {
+  testthat::expect_false(cusip_check(NA_character_))
+})
+
 test_that("cusip_check correct CUSIP", {
   testthat::expect_true(cusip_check('052800109'))
   testthat::expect_true(cusip_check('87162M409'))

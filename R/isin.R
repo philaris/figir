@@ -2,6 +2,7 @@ expand_digits <- function(v) {
   Reduce(c,
     base::lapply(v,
                  function(x)
+                   if (is.na(x)) integer(0L) else
                    as.integer(substring(x, seq(nchar(x)), seq(nchar(x)))))
   )
 }
@@ -40,6 +41,7 @@ isin_has_correct_checksum <- function(s) {
 #'
 #' @export
 isin_check <- function(s) {
+  !is.na(s) &
   base::nchar(s) == 12L &
     grepl('^[A-Z]{2}[A-Z0-9]{9}[0-9]$',
           s) &

@@ -4,6 +4,10 @@ testthat::test_that("sedol_check NULL", {
   testthat::expect_equal(sedol_check(character(0)), logical(0))
 })
 
+testthat::test_that("sedol_check NA_character_", {
+  testthat::expect_false(sedol_check(NA_character_))
+})
+
 test_that("sedol_check correct SEDOL", {
   testthat::expect_true(sedol_check('5437078'))
   testthat::expect_true(sedol_check('B923935'))

@@ -51,6 +51,7 @@ figi_has_correct_checksum <- function(s) {
 #'
 #' @export
 figi_check <- function(s) {
+  !is.na(s) &
   base::nchar(s) == 12L &
     (! base::substr(s, 1L, 2L) %in%
        c('BS', 'BM', 'GG', 'GB', 'GH', 'KY', 'VG')) &

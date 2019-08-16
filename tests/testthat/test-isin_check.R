@@ -1,8 +1,11 @@
-context("Check ISIN validity")
-library(figir)
+testthat::context("Check ISIN validity")
 
-test_that("isin_check NULL", {
-  expect_equal(isin_check(character(0)), logical(0))
+testthat::test_that("isin_check NULL", {
+  testthat::expect_equal(isin_check(character(0)), logical(0))
+})
+
+testthat::test_that("isin_check NA_character_", {
+  testthat::expect_false(isin_check(NA_character_))
 })
 
 test_that("isin_check correct ISIN", {

@@ -11,7 +11,9 @@ cusip_compute_checksum <- function(s) {
 }
 
 cusip_has_correct_checksum <- function(s) {
-  cusip_compute_checksum(substr(s, 1L, 8L)) == substr(s, 9L, 9L)
+  ifelse(base::nchar(s) == 9L,
+         cusip_compute_checksum(substr(s, 1L, 8L)) == substr(s, 9L, 9L),
+         FALSE)
 }
 
 #' Check validity of CUSIP
@@ -34,8 +36,7 @@ cusip_has_correct_checksum <- function(s) {
 #'
 #' @export
 cusip_check <- function(s) {
-  base::nchar(s) == 9L &
-    grepl('^[A-Z0-9]{9}$',
-          s) &
+  !is.na(s) &
+    grepl('^[A-Z0-9]{9}$', s) &
     cusip_has_correct_checksum(s)
 }
