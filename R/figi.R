@@ -26,8 +26,24 @@ gen_compute_checksum <- function(s, mul.v) {
   as.character(check_digit.v)
 }
 
-figi_compute_checksum <- function(s) {
-  gen_compute_checksum(s, c(1L, 2L))
+#' Compute the FIGI check digit
+#'
+#' Given a character vector, compute for each string the
+#' FIGI (Financial Instrument Global Identifier) checksum digit.
+#'
+#' @param v a character vector for whose elements the FIGI
+#'   (Financial Instrument Global Identifier) checksum digit is computed.
+#'
+#' @return A character vector of single character strings.
+#'
+#' @examples
+#' figi_compute_checksum('BBG000BLNQ1')
+#' figi_compute_checksum('NRG92C84SB3')
+#' figi_compute_checksum(c('BBG000BLNQ1', 'NRG92C84SB3'))
+#'
+#' @export
+figi_compute_checksum <- function(v) {
+  gen_compute_checksum(v, c(1L, 2L))
 }
 
 figi_has_correct_checksum <- function(s) {

@@ -76,3 +76,8 @@ test_that("figi_check bad checksum digit", {
   expect_true(!figi_check('BBG000BLNQ18'))
   expect_true(!figi_check('BBG000BLNQ19'))
 })
+
+test_that("figi_compute_checksum", {
+  expect_equal(figi_compute_checksum('BBG000BLNQ1'), '6')
+  expect_equal(figi_compute_checksum('NRG92C84SB3'), '9')
+})

@@ -2,5 +2,6 @@
 
 export(cusip_check)
 export(figi_check)
+export(figi_compute_checksum)
 export(isin_check)
 export(sedol_check)
