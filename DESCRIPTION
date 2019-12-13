@@ -1,11 +1,12 @@
 Package: figir
 Type: Package
-Title: Check validity of FIGI
+Title: Check validity of FIGI et al.
 Version: 0.1.6
 Author: Panagiotis Cheilaris [aut, cre]
 Maintainer: Panagiotis Cheilaris <philaris@cs.ntua.gr>
 Description: Check validity of FIGI
-    (Financial Instrument Global Identifier).
+    (Financial Instrument Global Identifier)
+    and other financial identifiers.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
