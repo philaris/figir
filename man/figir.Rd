@@ -3,7 +3,6 @@
 \docType{package}
 \name{figir}
 \alias{figir}
-\alias{figir-package}
 \title{figir: Check validity of FIGI}
 \description{
 This package contains code related to FIGI
