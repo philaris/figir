@@ -1,7 +1,7 @@
 Package: figir
 Type: Package
 Title: Check Validity of FIGI, ISIN, CUSIP, SEDOL
-Version: 0.1.6.3
+Version: 0.1.6.4
 Authors@R: c(
   person("Panagiotis", "Cheilaris", role = c("aut", "cre"),
          email = "philaris@gmail.com")
@@ -11,6 +11,8 @@ Maintainer: Panagiotis Cheilaris <philaris@gmail.com>
 Description: Check validity of FIGI
     (Financial Instrument Global Identifier)
     and other financial identifiers.
+URL: https://github.com/philaris/figir
+BugReports: https://github.com/philaris/figir/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
