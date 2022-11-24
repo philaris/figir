@@ -1,11 +1,11 @@
 sedol_compute_checksum <- function(s) {
-  u8.l <- figi_char_to_utf8(s)
-  figi_code.l <- base::lapply(u8.l, FUN = figi_utf8_to_code)
-  mulw.l <- base::lapply(figi_code.l,
-                         FUN = function (v) { v * c(1L, 3L, 1L, 7L, 3L, 9L) })
-  sum_digits.v <- base::vapply(mulw.l, FUN = sum, FUN.VALUE = NA_integer_)
-  check_digit.v <- (10L - sum_digits.v %% 10L) %% 10L
-  as.character(check_digit.v)
+  u8_l <- figi_char_to_utf8(s)
+  figi_code_l <- base::lapply(u8_l, FUN = figi_utf8_to_code)
+  mulw_l <- base::lapply(figi_code_l,
+                         FUN = function(v) v * c(1L, 3L, 1L, 7L, 3L, 9L))
+  sum_digits_v <- base::vapply(mulw_l, FUN = sum, FUN.VALUE = NA_integer_)
+  check_digit_v <- (10L - sum_digits_v %% 10L) %% 10L
+  as.character(check_digit_v)
 }
 
 sedol_has_correct_checksum <- function(s) {
@@ -33,7 +33,7 @@ sedol_has_correct_checksum <- function(s) {
 sedol_check <- function(s) {
   !is.na(s) &
   base::nchar(s) == 7L &
-    grepl('^[0-9BCDFGHJKLMNPQRSTVWXYZ]{7}$',
+    grepl("^[0-9BCDFGHJKLMNPQRSTVWXYZ]{7}$",
           s) &
     sedol_has_correct_checksum(s)
 }

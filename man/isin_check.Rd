@@ -19,8 +19,8 @@ Given a character vector, check the validity of ISIN
 for each of its elements.
 }
 \examples{
-isin_check('BBG000BLNQ16')
-isin_check('NRG92C84SB39')
-isin_check(c('BBG000BLNQ16', 'NRG92C84SB39'))
+isin_check("BBG000BLNQ16")
+isin_check("NRG92C84SB39")
+isin_check(c("BBG000BLNQ16", "NRG92C84SB39"))
 
 }

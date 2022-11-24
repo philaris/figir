@@ -18,8 +18,8 @@ Given a character vector, compute for each string the
 FIGI (Financial Instrument Global Identifier) checksum digit.
 }
 \examples{
-figi_compute_checksum('BBG000BLNQ1')
-figi_compute_checksum('NRG92C84SB3')
-figi_compute_checksum(c('BBG000BLNQ1', 'NRG92C84SB3'))
+figi_compute_checksum("BBG000BLNQ1")
+figi_compute_checksum("NRG92C84SB3")
+figi_compute_checksum(c("BBG000BLNQ1", "NRG92C84SB3"))
 
 }

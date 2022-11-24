@@ -1,22 +1,28 @@
+expand_helper <- function(x) {
+  if (is.na(x)) {
+    integer(0L)
+  } else {
+    as.integer(substring(x, seq(nchar(x)), seq(nchar(x))))
+  }
+}
+
 expand_digits <- function(v) {
-  Reduce(c,
-    base::lapply(v,
-                 function(x)
-                   if (is.na(x)) integer(0L) else
-                   as.integer(substring(x, seq(nchar(x)), seq(nchar(x)))))
-  )
+  base::Reduce(c, base::lapply(v, expand_helper))
+}
+
+mul_isin_f <- function(v) {
+  v * rev(rep(c(2L, 1L), length.out = length(v)))
 }
 
 isin_compute_checksum <- function(s) {
-  u8.l <- figi_char_to_utf8(s)
-  figi_code.l <- base::lapply(u8.l, FUN = figi_utf8_to_code)
-  digi_code.l <- base::lapply(figi_code.l, FUN = expand_digits)
-  mul12.l <- base::lapply(digi_code.l,
-                          FUN = function (v) { v * rev(rep(c(2L, 1L), length.out = length(v))) })
-  figi_sum2.l <- base::lapply(mul12.l, FUN = figi_sum_digits)
-  sum_digits.v <- base::vapply(figi_sum2.l, FUN = sum, FUN.VALUE = NA_integer_)
-  check_digit.v <- -sum_digits.v %% 10L
-  as.character(check_digit.v)
+  u8_l <- figi_char_to_utf8(s)
+  figi_code_l <- base::lapply(u8_l, FUN = figi_utf8_to_code)
+  digi_code_l <- base::lapply(figi_code_l, FUN = expand_digits)
+  mul12_l <- base::lapply(digi_code_l, FUN = mul_isin_f)
+  figi_sum2_l <- base::lapply(mul12_l, FUN = figi_sum_digits)
+  sum_digits_v <- base::vapply(figi_sum2_l, FUN = sum, FUN.VALUE = NA_integer_)
+  check_digit_v <- -sum_digits_v %% 10L
+  as.character(check_digit_v)
 }
 
 isin_has_correct_checksum <- function(s) {
@@ -35,15 +41,15 @@ isin_has_correct_checksum <- function(s) {
 #' @return A logical vector.
 #'
 #' @examples
-#' isin_check('BBG000BLNQ16')
-#' isin_check('NRG92C84SB39')
-#' isin_check(c('BBG000BLNQ16', 'NRG92C84SB39'))
+#' isin_check("BBG000BLNQ16")
+#' isin_check("NRG92C84SB39")
+#' isin_check(c("BBG000BLNQ16", "NRG92C84SB39"))
 #'
 #' @export
 isin_check <- function(s) {
   !is.na(s) &
   base::nchar(s) == 12L &
-    grepl('^[A-Z]{2}[A-Z0-9]{9}[0-9]$',
+    grepl("^[A-Z]{2}[A-Z0-9]{9}[0-9]$",
           s) &
     isin_has_correct_checksum(s)
 }

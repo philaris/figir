@@ -19,10 +19,10 @@ Given a character vector, check the validity of CUSIP
 for each of its elements.
 }
 \examples{
-cusip_check('052800109')
-cusip_check('87162M409')
-cusip_check('500750104')
-cusip_check(c('052800109', '87162M409'))
-cusip_check(c('052800109', '87162M407'))
+cusip_check("052800109")
+cusip_check("87162M409")
+cusip_check("500750104")
+cusip_check(c("052800109", "87162M409"))
+cusip_check(c("052800109", "87162M407"))
 
 }

@@ -18,8 +18,8 @@ Given a character vector, check the validity of FIGI (Financial
 Instrument Global Identifier) for each of its elements.
 }
 \examples{
-figi_check('BBG000BLNQ16')
-figi_check('NRG92C84SB39')
-figi_check(c('BBG000BLNQ16', 'NRG92C84SB39'))
+figi_check("BBG000BLNQ16")
+figi_check("NRG92C84SB39")
+figi_check(c("BBG000BLNQ16", "NRG92C84SB39"))
 
 }
