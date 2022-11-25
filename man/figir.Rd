@@ -5,7 +5,8 @@
 \alias{figir}
 \title{figir: Check validity of FIGI and other identifiers}
 \description{
-With the functions in this package you can check the
+With the functions `figi_check`, `cusip_check`, `isin_check`,
+`sedol_check`, in this package, you can check the
 validity of the following financial instrument identifiers:
 FIGI (Financial Instrument Global Identifier
 <https://www.openfigi.com/about/figi>),
@@ -15,4 +16,6 @@ ISIN (International Securities Identification Number
 <https://www.cusip.com/identifiers.html#/ISIN>),
 SEDOL (Stock Exchange Daily Official List
 <https://www2.lseg.com/SEDOL-masterfile-service-tech-guide-v8.6>).
+You can also calculate the FIGI checksum of 11-character strings
+with the function `figi_compute_checksum`.
 }

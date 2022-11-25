@@ -1,7 +1,7 @@
 Package: figir
 Type: Package
-Title: Check Validity of FIGI, ISIN, CUSIP, SEDOL
-Version: 0.1.6.5
+Title: Check Validity of FIGI, CUSIP, ISIN, SEDOL
+Version: 0.1.6.6
 Authors@R: c(
   person("Panagiotis", "Cheilaris", role = c("aut", "cre"),
          email = "philaris@gmail.com")
@@ -18,6 +18,8 @@ Description: With the functions in this package you can check the
   <https://www.cusip.com/identifiers.html#/ISIN>),
   SEDOL (Stock Exchange Daily Official List
   <https://www2.lseg.com/SEDOL-masterfile-service-tech-guide-v8.6>).
+  You can also calculate the FIGI checksum of 11-character strings,
+  which can be useful if you want to create your own FIGI identifiers.
 URL: https://github.com/philaris/figir
 BugReports: https://github.com/philaris/figir/issues
 License: MIT + file LICENSE
