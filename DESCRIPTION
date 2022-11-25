@@ -1,7 +1,7 @@
 Package: figir
 Type: Package
 Title: Check Validity of FIGI, CUSIP, ISIN, SEDOL
-Version: 0.1.6.6
+Version: 0.1.6.7
 Authors@R: c(
   person("Panagiotis", "Cheilaris", role = c("aut", "cre"),
          email = "philaris@gmail.com")
