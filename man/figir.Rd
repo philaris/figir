@@ -16,6 +16,7 @@ ISIN (International Securities Identification Number
 <https://www.cusip.com/identifiers.html#/ISIN>),
 SEDOL (Stock Exchange Daily Official List
 <https://www2.lseg.com/SEDOL-masterfile-service-tech-guide-v8.6>).
-You can also calculate the FIGI checksum of 11-character strings
-with the function `figi_compute_checksum`.
+With the function `figi_compute_checksum`,
+you can also calculate the FIGI checksum of 11-character strings,
+which can be useful if you want to create your own FIGI identifiers.
 }
