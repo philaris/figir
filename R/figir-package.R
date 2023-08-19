@@ -1,5 +1,4 @@
-#' figir: Check validity of FIGI and other identifiers
-#'
+#' @description
 #' With the functions `figi_check`, `cusip_check`, `isin_check`,
 #' `sedol_check`, in this package, you can check the
 #' validity of the following financial instrument identifiers:
@@ -14,7 +13,9 @@
 #' With the function `figi_compute_checksum`,
 #' you can also calculate the FIGI checksum of 11-character strings,
 #' which can be useful if you want to create your own FIGI identifiers.
-#'
-#' @docType package
-#' @name figir
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL
