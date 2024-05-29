@@ -1,7 +1,7 @@
 Package: figir
 Type: Package
 Title: Check Validity of FIGI, CUSIP, ISIN, SEDOL
-Version: 0.1.7.0
+Version: 0.1.7.1
 Authors@R: c(
   person("Panagiotis", "Cheilaris", role = c("aut", "cre"),
          email = "philaris@gmail.com")
@@ -24,6 +24,6 @@ URL: https://github.com/philaris/figir
 BugReports: https://github.com/philaris/figir/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Suggests: 
     testthat
